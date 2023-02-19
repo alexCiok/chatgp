@@ -20,5 +20,9 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Insert OpenAI Private API Key
+>src>App.vue
+```
+lines 46, 70
+apiKey: *insert your OpenAI private API Key*
+```
