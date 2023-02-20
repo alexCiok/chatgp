@@ -1,5 +1,7 @@
 # chatgp
 
+## Video Walkthrough
+https://youtu.be/pZvn03iVe7k
 ## Project setup
 ```
 npm install
