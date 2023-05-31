@@ -8,17 +8,19 @@
   :yolo="response"
   :mdPic="mdURL"
   ></router-view>
-  <loading 
+  <Loading 
     v-model:active="isLoading"
     :can-cancel="false"
     :is-full-page="fullPage"
-  ></loading>
+  ></Loading>
 </template>
 
 <script>
 
 import Loading from 'vue-loading-overlay';
+import navigationComp from './components/navigationComp.vue'
 import 'vue-loading-overlay/dist/css/index.css';
+
 import { Configuration, OpenAIApi } from "openai"
 export default {
   name: 'App',

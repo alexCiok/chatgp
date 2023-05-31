@@ -1,8 +1,4 @@
 <template>
-<<<<<<< HEAD:src/pages/LandingPage.vue
-    <navigationComp/>
-=======
->>>>>>> 1c9d1b10ae5a185bcc4ef37ec4fdd0e123647314:frontend/src/pages/LandingPage.vue
     <div v-if="queryStarted">
         <queryComp
         @collectPersonal="collectPersonal"
