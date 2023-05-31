@@ -1,8 +1,5 @@
 <template>
-<<<<<<< HEAD:src/App.vue
-=======
   <navigationComp/>
->>>>>>> 1c9d1b10ae5a185bcc4ef37ec4fdd0e123647314:frontend/src/App.vue
   <router-view
   @personalInfo="storePersonalInfo"
   @testDetails="chatGPT"
@@ -23,30 +20,6 @@
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/css/index.css';
 import { Configuration, OpenAIApi } from "openai"
-<<<<<<< HEAD:src/App.vue
-
-//Firebase Setup
-import firebase from 'firebase/compat/app';
-
-const firebaseConfig = {
-            apiKey: "AIzaSyAZFFmV0_-vTbVnPbDWtk08_PInS_mzoZM", //hide this!
-            authDomain: "chatgp-7ab92.firebaseapp.com",
-            projectId: "chatgp-7ab92",
-            storageBucket: "chatgp-7ab92.appspot.com",
-            messagingSenderId: "445057067830",
-            appId: "1:445057067830:web:ee11da35f21bbf4a216197",
-            measurementId: "G-LVQQGEXZTX"
-        };
-firebase.initializeApp(firebaseConfig);
-
-=======
-import navigationComp from '../src/components/navigationComp.vue'
-
-<<<<<<< HEAD
-=======
-dotenv.config();
->>>>>>> 1c9d1b10ae5a185bcc4ef37ec4fdd0e123647314:frontend/src/App.vue
->>>>>>> f34c22bf21b94804ac0512c5711341e9ab0b6b38
 export default {
   name: 'App',
   components: {
@@ -72,11 +45,7 @@ export default {
     async contactMD(worryValue){
       const configuration = new Configuration({
           //insert PRIVATE API KEY//
-<<<<<<< HEAD:src/App.vue
-          apiKey: "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"
-=======
           apiKey: process.env.API_KEY
->>>>>>> 1c9d1b10ae5a185bcc4ef37ec4fdd0e123647314:frontend/src/App.vue
       });
       const openai = new OpenAIApi(configuration);
       this.isLoading = true
@@ -100,11 +69,7 @@ export default {
 
       const configuration = new Configuration({
           //insert PRIVATE API KEY//
-<<<<<<< HEAD:src/App.vue
-          apiKey:"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"
-=======
           apiKey: process.env.API_KEY
->>>>>>> 1c9d1b10ae5a185bcc4ef37ec4fdd0e123647314:frontend/src/App.vue
       });
       const openai = new OpenAIApi(configuration);
       const promptBits = [

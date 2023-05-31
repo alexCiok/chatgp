@@ -9,15 +9,9 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD:package.json
     "firebase": "^9.21.0",
     "firebaseui": "^6.0.2",
-=======
     "dotenv": "^16.0.3",
->>>>>>> 1c9d1b10ae5a185bcc4ef37ec4fdd0e123647314:frontend/package.json
->>>>>>> f34c22bf21b94804ac0512c5711341e9ab0b6b38
     "openai": "^3.1.0",
     "vue": "^3.2.13",
     "vue-loading-overlay": "^6.0.3",
