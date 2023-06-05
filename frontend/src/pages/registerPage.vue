@@ -47,17 +47,22 @@
             <div class="form-group">
                 <button @click="register">Register</button>
             </div>
+            <fireBaseUI class="google"/>
         </div>
     </div>
+
 </template>
 
 <script>
-import axios from 'axios'
 import thankYou from '../components/thankYou.vue'
-    export default {
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
+import fireBaseUI from '../components/fireBaseUI.vue'
+
+export default {
         name: 'registerPage',
         components: {
-            thankYou
+            thankYou,
+            fireBaseUI
         },
         data() {
             return {
@@ -69,24 +74,22 @@ import thankYou from '../components/thankYou.vue'
                 registered: false,
             }
         },
+        mounted() {
+        },
         methods:{
-            register(){
-                this.registered = !this.registered
-                const user = {
-                    first_name: this.first_name,
-                    last_name: this.last_name,
-                    email: this.email,
-                    password: this.password,
-                    confirm_password: this.confirm_password
+            async register(){
+                    const auth= getAuth()
+                    await createUserWithEmailAndPassword(auth, this.email, this.password)
+                    .then(()=>{
+                        alert('Registration successful')
+                        this.$router.push("/")
+                        this.registered = !this.registered
+                    })
+                    .catch(err=>{
+                        console.log(err);
+                    })
                 }
-                axios.post('http://localhost:3000/register', user)
-                .then( response => {
-                    console.log(response)
-                }
-                ).catch (error =>{
-                    console.log(error)
-                })
-            }
+        
         }
     }
 </script>

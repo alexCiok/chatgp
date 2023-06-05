@@ -20,8 +20,9 @@
 import Loading from 'vue-loading-overlay';
 import navigationComp from './components/navigationComp.vue'
 import 'vue-loading-overlay/dist/css/index.css';
-
 import { Configuration, OpenAIApi } from "openai"
+
+
 export default {
   name: 'App',
   components: {
@@ -43,7 +44,6 @@ export default {
     storePersonalInfo(person){
       this.personalInfo = person
     },
-
     async contactMD(worryValue){
       const configuration = new Configuration({
           //insert PRIVATE API KEY//

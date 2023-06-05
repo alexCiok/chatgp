@@ -9,6 +9,9 @@ import resultsPage from '../src/pages/resultsPage'
 import contactPage from '../src/pages/contactPage'
 import loginPage from '../src/pages/loginPage'
 import registerPage from '../src/pages/registerPage'
+import { firebaseConfig } from './pages/firebaseConfig'
+
+
 const paths = [
     {path: '/', component: LandingPage},
     {path: '/registration', component: registerPage},
@@ -28,5 +31,21 @@ const router = createRouter(
     }
 )
 
-//initializeApp(firebaseConfig);
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+
+import { initializeApp } from "firebase/app";
+// const firebaseConfig = {
+//   apiKey: 'AIzaSyAZFFmV0_-vTbVnPbDWtk08_PInS_mzoZM',
+//   authDomain: "chatgp-7ab92.firebaseapp.com",
+//   projectId: "chatgp-7ab92",
+//   storageBucket: "chatgp-7ab92.appspot.com",
+//   messagingSenderId: "445057067830",
+//   appId: "1:445057067830:web:ee11da35f21bbf4a216197",
+//   measurementId: "G-LVQQGEXZTX"
+// };
+// // Initialize Firebase
+initializeApp(firebaseConfig)
 createApp(App).use(router).mount('#app')
