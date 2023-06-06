@@ -14,5 +14,16 @@ export const useUsersStore = defineStore('users',{
                 }
             ]
         }
+    },
+    getters: {
+        getCurrentUserLoggedIn(state) {
+          return state.currentUserLoggedIn
+        }
+    },
+    actions: {
+        setCurrentUserLoggedIn(userName){
+            this.currentUserLoggedIn = userName
+            return this.currentUserLoggedIn;
+        }
     }
 })

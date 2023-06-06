@@ -3,8 +3,8 @@
         <router-link to="/">
             <img src="../assets/chatGP-logo.png" alt="our logo">
         </router-link>
-        
-        <div v-if="{}" class="login">
+        <div v-if="currentUser === undefined" class="login">
+            {{ random }}
             <router-link to="/login">
                 <span>Login</span>
             </router-link>
@@ -12,20 +12,23 @@
                 <span>Sign up</span>
             </router-link>
         </div>
+        <div v-else>
+            {{ console.log(currentUser) }}
+            My Profile
+        </div>
     </div>
 </template>
 
 <script>
     import { useUsersStore } from '../store';
-    const users = useUsersStore;
-    console.log(users);
+    const users = useUsersStore();
     export default {
         inheritAttrs: false,
         name: 'navigationComp',
         props: ['currentUserProp'],
         data(){
             return({
-                currentUser: null
+                currentUser: users.currentUserLoggedIn,
             })
         }
     }

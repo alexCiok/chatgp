@@ -7,9 +7,10 @@
 
 <script>
 import { getAuth, signInWithEmailAndPassword  } from "firebase/auth"
-
 import loginComp from '../components/loginComp.vue'
 import manualLogin from "@/components/manualLogin.vue"
+import { useUsersStore } from "../store"
+
     export default {
         name: 'loginPage',
         components: {
@@ -19,23 +20,25 @@ import manualLogin from "@/components/manualLogin.vue"
         data(){
             return({
                 email:'',
-                password:''
+                password:'',
+                
             })
         },
         methods:{
             async login({email, password}){
+                const store = useUsersStore()
                 const auth = getAuth();
                 console.log(email)
                 await signInWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
                     console.log("currentUser = ", auth.currentUser);
                     console.log("userCredential = ", userCredential);
+                    store.currentUserLoggedIn = auth.currentUser
                     this.$router.push("/")
                 })
                 .catch(err=>{
                     alert(err.message);
                 })
-                
             }
         }
     }

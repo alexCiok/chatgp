@@ -24,7 +24,6 @@ import { auth } from 'firebaseui'
             signInSuccessUrl: '/',
             callbacks: {
                 uiShown: ()=>{
-                    alert("shown!")
                 },
                 signInFailure: function(error) {
                     if (error.code != 'firebaseui/anonymous-upgrade-merge-conflict') {

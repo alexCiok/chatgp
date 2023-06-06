@@ -29,10 +29,20 @@ import { useUsersStore } from '../store'
                 const cred = GoogleAuthProvider.credentialFromResult(res);
                 const token = cred.accessToken;
                 const store = useUsersStore()
+                const auth = getAuth();
+                auth.onAuthStateChanged( user => {
+                    if(user){
+                        store.currentUserLoggedIn = user.email
+                        console.log("User successfully logged in from Manual Login: ", store.currentUserLoggedIn)
+                    }
+                    else{
+                        console.log("no user logged in")
+                    }
+                })
                 store.currentUserLoggedIn = res.user.email
                 const user = res.user;
-                console.log(token, user)
-                console.log(store.currentUserLoggedIn)
+                console.log("this.auth.currentuser", this.auth.currentUser)
+                console.log("token and user", token, user)
                 this.$router.push("/")
             })
             .catch( (error) => {

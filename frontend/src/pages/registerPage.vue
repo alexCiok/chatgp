@@ -80,16 +80,18 @@ export default {
             async register(){
                     const auth= getAuth()
                     await createUserWithEmailAndPassword(auth, this.email, this.password)
-                    .then(()=>{
+                    .then((res)=>{
+                        console.log(res)
                         alert('Registration successful')
                         this.$router.push("/")
                         this.registered = !this.registered
                     })
                     .catch(err=>{
+                        //add switch for different error codes (e.g. "weak password", "email taken")
+                        alert(err.code)
                         console.log(err);
                     })
                 }
-        
         }
     }
 </script>
