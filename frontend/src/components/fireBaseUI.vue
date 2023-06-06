@@ -6,7 +6,7 @@
 <script>
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
-import { firebaseConfig } from '@/pages/firebaseConfig';
+import { firebaseConfig } from '../firebaseConfig';
 import "firebaseui/dist/firebaseui.css";
 import { auth } from 'firebaseui'
     export default {

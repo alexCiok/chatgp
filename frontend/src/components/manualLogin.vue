@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-
+import { getAuth, signInWithPopup, GoogleAuthProvider  } from "firebase/auth";
+import { useUsersStore } from '../store'
     export default {
         name:'manualLogin',
         data(){
@@ -20,7 +20,6 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
         mounted() {
             this.provider = new GoogleAuthProvider();
             this.auth = getAuth();
-            
         },
         methods:{
            customLogin(){
@@ -29,8 +28,12 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
                 // This gives you a Google Access Token. You can use it to access the Google API.
                 const cred = GoogleAuthProvider.credentialFromResult(res);
                 const token = cred.accessToken;
+                const store = useUsersStore()
+                store.currentUserLoggedIn = res.user.email
                 const user = res.user;
                 console.log(token, user)
+                console.log(store.currentUserLoggedIn)
+                this.$router.push("/")
             })
             .catch( (error) => {
                 const errorCode = error.code;

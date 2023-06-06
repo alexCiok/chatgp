@@ -3,7 +3,8 @@
         <router-link to="/">
             <img src="../assets/chatGP-logo.png" alt="our logo">
         </router-link>
-        <div class="login">
+        
+        <div v-if="{}" class="login">
             <router-link to="/login">
                 <span>Login</span>
             </router-link>
@@ -15,7 +16,9 @@
 </template>
 
 <script>
-
+    import { useUsersStore } from '../store';
+    const users = useUsersStore;
+    console.log(users);
     export default {
         inheritAttrs: false,
         name: 'navigationComp',

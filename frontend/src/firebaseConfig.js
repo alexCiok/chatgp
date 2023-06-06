@@ -1,7 +1,6 @@
-
-console.log(process.env.VUE_FIREBASE_API_KEY)
+import {API_KEYS} from '../apiKeys'
 const firebaseConfig = {
-  apiKey: 'potato',
+  apiKey: API_KEYS.VUE_APP_FIREBASE_API_KEY,
   authDomain: "chatgp-7ab92.firebaseapp.com",
   projectId: "chatgp-7ab92",
   storageBucket: "chatgp-7ab92.appspot.com",

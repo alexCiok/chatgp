@@ -9,9 +9,9 @@ import resultsPage from '../src/pages/resultsPage'
 import contactPage from '../src/pages/contactPage'
 import loginPage from '../src/pages/loginPage'
 import registerPage from '../src/pages/registerPage'
-import { firebaseConfig } from './pages/firebaseConfig'
-
-
+import { firebaseConfig } from './firebaseConfig'
+import { createPinia } from 'pinia'
+import { useUsersStore } from './store'
 const paths = [
     {path: '/', component: LandingPage},
     {path: '/registration', component: registerPage},
@@ -48,4 +48,22 @@ import { initializeApp } from "firebase/app";
 // };
 // // Initialize Firebase
 initializeApp(firebaseConfig)
-createApp(App).use(router).mount('#app')
+const pinia = createPinia()
+
+createApp(App).use(router).use(pinia).mount('#app')
+
+const store = useUsersStore()
+store.$patch( (state) => {
+    state.users.push(
+        {
+            id: 1,
+            name: 'Alex',
+            email: 'acciok@gmail.com',
+            age: '22',
+            weight: '165lbs'
+        }
+    )
+})
+console.log(store.users)
+store.$reset()
+console.log(store.users[1])
